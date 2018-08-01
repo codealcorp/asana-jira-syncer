@@ -1,0 +1,12 @@
+{
+  "name": "asana-jira-syncer",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {
+    "serverless": "^1.29.2"
+  },
+  "dependencies": {
+    "asana": "^0.15.1",
+    "jira-client": "^6.4.1"
+  }
+}
