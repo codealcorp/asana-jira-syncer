@@ -72,7 +72,7 @@ const processAsanaStory = async (asanaClient, jiraClient, event) => {
       if (!jiraIssueUrl) {
         const issue = await jiraClient.addNewIssue(issueParams)
         jiraIssueUrl = `https://${process.env.JIRA_HOST}/browse/${issue['key']}`
-        await asanaClient.stories.createOnTask(task.id, {text: `JIRA ISSUE: ${jiraIssueUrl}`, is_pinned: true})
+        await asanaClient.stories.createOnTask(task.id, {text: `JIRA ISSUE: ${jiraIssueUrl}`})
       }
 
       console.log(jiraIssueUrl)
