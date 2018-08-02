@@ -60,7 +60,7 @@ const processAsanaStory = async (asanaClient, jiraClient, event) => {
     issueParams.fields[process.env.JIRA_ASANA_FIELD_ID] = asanaURL
 
     let makeJiraIssue = false
-    if (story.text.match(/^\/make jira story$/)) {
+    if (story.text.match(/^\/make jira$/)) {
       makeJiraIssue = true
     } else if (story.text.match(/^\/make jira bug$/)) {
       issueParams.fields.issuetype.id = process.env.JIRA_BUG_ISSUE_ID
