@@ -58,7 +58,6 @@ const processAsanaStory = async (asanaClient, jiraClient, event) => {
       }
     }
     issueParams.fields[process.env.JIRA_ASANA_FIELD_ID] = asanaURL
-    console.log(issueParams)
 
     let makeJiraIssue = false
     if (story.text.match(/^\/make jira story$/)) {
@@ -73,10 +72,10 @@ const processAsanaStory = async (asanaClient, jiraClient, event) => {
       if (!jiraIssueUrl) {
         const issue = await jiraClient.addNewIssue(issueParams)
         jiraIssueUrl = `https://${process.env.JIRA_HOST}/browse/${issue['key']}`
+        await asanaClient.stories.createOnTask(task.id, {text: `JIRA ISSUE: ${jiraIssueUrl}`, is_pinned: true})
       }
 
       console.log(jiraIssueUrl)
-      await asanaClient.stories.createOnTask(task.id, {text: `JIRA ISSUE: ${jiraIssueUrl}`})
     }
   } catch (e) {
     console.error(e)
