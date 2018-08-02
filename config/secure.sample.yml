@@ -1,0 +1,4 @@
+keyArn: 'arn:aws:kms:xxx:xxx'
+secrets:
+    ASANA_TOKEN: xxx
+    JIRA_PASSWORD: xxx

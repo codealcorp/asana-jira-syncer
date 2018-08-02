@@ -1,0 +1,10 @@
+jira:
+  host: 'example.atlassian.net'
+  username: 'your_email@exampl.com'
+  project_id: '10001'
+  story_issue_id: '10001'
+  bug_issue_id: '10004'
+  asana_field_id: 'field name'
+
+asana:
+  project_id: 'asana_project_id'

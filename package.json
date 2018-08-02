@@ -1,7 +1,7 @@
 {
   "name": "asana-jira-syncer",
   "version": "1.0.0",
-  "main": "index.js",
+  "license": "MIT",
   "devDependencies": {
     "serverless": "^1.29.2",
     "serverless-kms-secrets": "^1.0.3",
