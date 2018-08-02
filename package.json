@@ -3,10 +3,13 @@
   "version": "1.0.0",
   "main": "index.js",
   "devDependencies": {
-    "serverless": "^1.29.2"
+    "serverless": "^1.29.2",
+    "serverless-kms-secrets": "^1.0.3",
+    "serverless-offline": "^3.25.6"
   },
   "dependencies": {
     "asana": "^0.15.1",
-    "jira-client": "^6.4.1"
+    "jira-client": "^6.4.1",
+    "lodash": "^4.17.10"
   }
 }
