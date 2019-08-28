@@ -36,7 +36,7 @@ const searchExistsJIRAIssue = async (jiraClient, asanaURL) => {
 const processAsanaStory = async (asanaClient, jiraClient, event) => {
   try {
     const asanaProjectId = process.env.ASANA_PROJECT_ID
-    const story = await asanaClient.stories.findById(event.resource)
+    const story = await asanaClient.stories.findById(event.resource.gid)
 
     if (story.type === 'system') {
       return
@@ -83,6 +83,7 @@ const processAsanaStory = async (asanaClient, jiraClient, event) => {
 }
 
 module.exports.asanaIncommingWebhook = (event, context, callback) => {
+  console.log(event)
   if (event.headers['X-Hook-Secret']) {
     // handshake response
     callback(null, {
@@ -95,7 +96,7 @@ module.exports.asanaIncommingWebhook = (event, context, callback) => {
   }
 
   const payload = JSON.parse(event.body)
-  const storyAddedEvents = _.filter(payload.events, {type: 'story', action: 'added'})
+  const storyAddedEvents = _.filter(payload.events, {action: 'added', resource: { resource_type: 'story', resource_subtype: 'comment_added' }})
 
   let asanaClient = null
   let jiraClient = null
