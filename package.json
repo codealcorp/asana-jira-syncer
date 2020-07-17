@@ -10,6 +10,6 @@
   "dependencies": {
     "asana": "^0.15.1",
     "jira-client": "^6.4.1",
-    "lodash": "^4.17.10"
+    "lodash": "^4.17.19"
   }
 }
